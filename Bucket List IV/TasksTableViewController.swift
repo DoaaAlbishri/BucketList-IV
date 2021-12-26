@@ -50,5 +50,9 @@ class TasksTableViewController: UITableViewController {
         return cell
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let vc = segue.destination as! AddViewController
+        vc.delegate = self
+    }
 
 }

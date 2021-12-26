@@ -14,6 +14,7 @@
 		84829FAE277835FC001C9B69 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84829FAC277835FC001C9B69 /* LaunchScreen.storyboard */; };
 		84829FB62778369B001C9B69 /* TasksTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84829FB52778369B001C9B69 /* TasksTableViewController.swift */; };
 		84829FB8277836D5001C9B69 /* TaskModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84829FB7277836D5001C9B69 /* TaskModel.swift */; };
+		84829FBA277838B2001C9B69 /* AddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84829FB9277838B2001C9B69 /* AddViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		84829FAF277835FC001C9B69 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		84829FB52778369B001C9B69 /* TasksTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksTableViewController.swift; sourceTree = "<group>"; };
 		84829FB7277836D5001C9B69 /* TaskModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskModel.swift; sourceTree = "<group>"; };
+		84829FB9277838B2001C9B69 /* AddViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +63,7 @@
 				84829FA1277835FB001C9B69 /* AppDelegate.swift */,
 				84829FA3277835FB001C9B69 /* SceneDelegate.swift */,
 				84829FB52778369B001C9B69 /* TasksTableViewController.swift */,
+				84829FB9277838B2001C9B69 /* AddViewController.swift */,
 				84829FB7277836D5001C9B69 /* TaskModel.swift */,
 				84829FA7277835FB001C9B69 /* Main.storyboard */,
 				84829FAA277835FC001C9B69 /* Assets.xcassets */,
@@ -141,6 +144,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				84829FBA277838B2001C9B69 /* AddViewController.swift in Sources */,
 				84829FB62778369B001C9B69 /* TasksTableViewController.swift in Sources */,
 				84829FA2277835FB001C9B69 /* AppDelegate.swift in Sources */,
 				84829FB8277836D5001C9B69 /* TaskModel.swift in Sources */,
