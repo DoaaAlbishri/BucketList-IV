@@ -30,5 +30,36 @@ class TaskModel {
                 task.resume()
             }
     }
-
+    static func updateTask(task: NSDictionary, completionHandler: @escaping(_ data: Data?, _ response: URLResponse?, _ error: Error?) -> Void) {
+        if let urlToReq = URL(string: "http://localhost:8000/tasks") {
+            var request = URLRequest(url: urlToReq)
+            // Set the method to PUT for update
+            request.httpMethod = "PUT"
+            do{
+                let bodyData = try JSONSerialization.data(withJSONObject: task, options: .prettyPrinted)
+                request.httpBody = bodyData
+                
+                request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+                
+                let session = URLSession.shared
+                let task = session.dataTask(with: request, completionHandler: completionHandler)
+                task.resume()
+            }catch{
+                print(error)
+            }
+    }
+}
+    
+    static func deleteTask(id: Int, completionHandler: @escaping(_ data: Data?, _ response: URLResponse?, _ error: Error?) -> Void) {
+        if let urlToReq = URL(string: "http://localhost:8000/tasks") {
+            var request = URLRequest(url: urlToReq)
+            // Set the method to DELETE for delete
+            request.httpMethod = "DELETE"
+            let bodyData = "id\(id)"
+            request.httpBody = bodyData.data(using: String.Encoding.utf8)
+            let session = URLSession.shared
+            let task = session.dataTask(with: request, completionHandler: completionHandler)
+            task.resume()
+        }
+    }
 }
