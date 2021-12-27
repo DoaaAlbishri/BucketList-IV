@@ -11,6 +11,7 @@ class TasksTableViewController: UITableViewController {
 //= [["fname": "abc", "lname": "def"], ["fname": "ghi", "lname": "jkl"]]
     var tasks = [NSDictionary]()
     var index :IndexPath?
+    var id :Int?
         override func viewDidLoad() {
                 TaskModel.getAllTasks() {
                     data, response, error in
@@ -56,6 +57,7 @@ class TasksTableViewController: UITableViewController {
         
         if let taskToEdit = sender as? NSDictionary{
             vc.indexPath = index
+            vc.id = id
             vc.taskToEdit = taskToEdit
         }
             
@@ -63,6 +65,7 @@ class TasksTableViewController: UITableViewController {
     }
     // for update
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.id = tasks[indexPath.row].value(forKey: "id") as! Int
         self.index = indexPath
         performSegue(withIdentifier: "add", sender: tasks[indexPath.row])
     }
@@ -72,8 +75,11 @@ class TasksTableViewController: UITableViewController {
         TaskModel.deleteTask(id: id, completionHandler: {
             data, response , error in
             if data != nil{
+                DispatchQueue.main.async {
                     self.tasks.remove(at: indexPath.row)
                     self.tableView.reloadData()
+                }
+               
                 }
             else{
                 print("no action")

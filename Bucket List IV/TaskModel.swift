@@ -9,14 +9,14 @@ import Foundation
 
 class TaskModel {
     static func getAllTasks(completionHandler: @escaping(_ data: Data?, _ response: URLResponse?, _ error: Error?) -> Void) {
-        let url = URL(string: "http://localhost:8000/tasks")
+        let url = URL(string: "https://saudibucketlistapi.herokuapp.com/tasks/")
         let session = URLSession.shared
         let task = session.dataTask(with: url!, completionHandler: completionHandler)
         task.resume()
     }
     static func addTaskWithObjective(objective: String, completionHandler: @escaping(_ data: Data?, _ response: URLResponse?, _ error: Error?) -> Void) {
      // Create the url to request
-            if let urlToReq = URL(string: "http://localhost:8000/tasks") {
+            if let urlToReq = URL(string: "https://saudibucketlistapi.herokuapp.com/tasks/") {
                 // Create an NSMutableURLRequest using the url. This Mutable Request will allow us to modify the headers.
                 var request = URLRequest(url: urlToReq)
                 // Set the method to POST
@@ -30,8 +30,9 @@ class TaskModel {
                 task.resume()
             }
     }
-    static func updateTask(task: NSDictionary, completionHandler: @escaping(_ data: Data?, _ response: URLResponse?, _ error: Error?) -> Void) {
-        if let urlToReq = URL(string: "http://localhost:8000/tasks") {
+    // id not used
+    static func updateTask(id:Int,task: NSDictionary, completionHandler: @escaping(_ data: Data?, _ response: URLResponse?, _ error: Error?) -> Void) {
+        if let urlToReq = URL(string: "https://saudibucketlistapi.herokuapp.com/tasks/") {
             var request = URLRequest(url: urlToReq)
             // Set the method to PUT for update
             request.httpMethod = "PUT"
@@ -51,7 +52,7 @@ class TaskModel {
 }
     
     static func deleteTask(id: Int, completionHandler: @escaping(_ data: Data?, _ response: URLResponse?, _ error: Error?) -> Void) {
-        if let urlToReq = URL(string: "http://localhost:8000/tasks") {
+        if let urlToReq = URL(string: "https://saudibucketlistapi.herokuapp.com/tasks/\(id)") {
             var request = URLRequest(url: urlToReq)
             // Set the method to DELETE for delete
             request.httpMethod = "DELETE"
